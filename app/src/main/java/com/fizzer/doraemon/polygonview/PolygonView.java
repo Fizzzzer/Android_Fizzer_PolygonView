@@ -40,7 +40,7 @@ public class PolygonView extends View {
     /**
      * Base图形的颜色值
      */
-    private int mBaseLineColor=Color.parseColor("#FF0000");
+    private int mBaseLineColor = Color.parseColor("#FF0000");
 
     /**
      * 整个View的背景颜色值
@@ -102,8 +102,8 @@ public class PolygonView extends View {
         canvas.drawColor(mBackGroundColor);
 
         drawPolygo(canvas, mBaseRadius, paint, true);
-        drawPolygo(canvas, mBaseRadius - 100, paint, false);
-        drawPolygo(canvas, mBaseRadius - 200, paint, false);
+        drawPolygo(canvas, mBaseRadius / 3 * 2, paint, false);
+        drawPolygo(canvas, mBaseRadius / 3, paint, false);
         drawArea(canvas);
 
     }
@@ -137,6 +137,7 @@ public class PolygonView extends View {
 
     /**
      * 根据角度获取点的坐标
+     *
      * @param angle angle  角度
      * @return 返回目标点的坐标
      */
@@ -162,9 +163,10 @@ public class PolygonView extends View {
 
     /**
      * 根据索引值获取点的坐标
-     * @param index 索引值
-     * @param radius    半径大小
-     * @return  point
+     *
+     * @param index  索引值
+     * @param radius 半径大小
+     * @return point
      */
     private Point getPoint(int index, int radius) {
         float angle = index * 360 / mPointNum;
@@ -174,7 +176,8 @@ public class PolygonView extends View {
 
     /**
      * 获取一个 0-radius 之间的整形值
-     * @return  int
+     *
+     * @return int
      */
     private int getRandom() {
         Random random = new Random();
@@ -183,7 +186,8 @@ public class PolygonView extends View {
 
     /**
      * 获取所有点的做标集合
-     * @return  List
+     *
+     * @return List
      */
     private List<Point> getPointList() {
         List<Point> listPoint = new ArrayList<>();
@@ -196,7 +200,8 @@ public class PolygonView extends View {
 
     /**
      * 绘制需要的范围区域
-     * @param canvas    canvas
+     *
+     * @param canvas canvas
      */
     private void drawArea(Canvas canvas) {
         Paint paint = new Paint();
@@ -218,6 +223,7 @@ public class PolygonView extends View {
 
     /**
      * 设置整个base多边形的半径
+     *
      * @param radius 半径
      */
     public void setBaseRadius(int radius) {
@@ -226,25 +232,28 @@ public class PolygonView extends View {
 
     /**
      * 设置base图形的颜色
+     *
      * @param color color
      */
-    public void setBaseLineColor(int color){
+    public void setBaseLineColor(int color) {
         mBaseLineColor = color;
     }
 
     /**
      * 设置view的背景颜色
-     * @param color    color
+     *
+     * @param color color
      */
-    public void setBackGroundColor(int color){
+    public void setBackGroundColor(int color) {
         mBackGroundColor = color;
     }
 
     /**
      * 设置顶点个数
-     * @param num   num
+     *
+     * @param num num
      */
-    public void setPointNum(int num){
+    public void setPointNum(int num) {
         mPointNum = num;
     }
 
